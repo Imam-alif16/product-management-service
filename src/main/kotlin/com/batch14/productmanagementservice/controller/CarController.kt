@@ -25,9 +25,12 @@ class CarController (
         )
     }
     @GetMapping("/{id}")
-    fun getBrandById(@PathVariable id: Int): ResponseEntity<ResGetCarDto>{
+    fun getBrandById(@PathVariable id: Int): ResponseEntity<BaseResponse<ResGetCarDto>> {
         return ResponseEntity.ok(
-            masterCarService.getCarById(id)
+            BaseResponse(
+                data = masterCarService.getCarById(id)
+            )
+
         )
     }
 }

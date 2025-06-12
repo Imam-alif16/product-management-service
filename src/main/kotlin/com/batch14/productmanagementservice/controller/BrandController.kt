@@ -24,9 +24,12 @@ class BrandController (
         )
     }
     @GetMapping("/{id}")
-    fun getBrandById(@PathVariable id: Int): ResponseEntity<ResGetBrandDto>{
+    fun getBrandById(@PathVariable id: Int): ResponseEntity<BaseResponse<ResGetBrandDto>> {
         return ResponseEntity.ok(
-            masterBrandService.getBrandById(id)
+            BaseResponse(
+                data = masterBrandService.getBrandById(id)
+            )
+
         )
     }
 }
