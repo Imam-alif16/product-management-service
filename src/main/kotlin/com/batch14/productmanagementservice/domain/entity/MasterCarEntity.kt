@@ -33,6 +33,9 @@ class MasterCarEntity(
     @Column(name = "name")
     var name: String,
 
+    @Column(name = "color")
+    var color: String,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brandId")
     var brand: MasterBrandEntity? = null,
